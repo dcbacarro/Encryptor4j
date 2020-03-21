@@ -85,7 +85,7 @@ public abstract class AbsKeyFactory implements KeyFactory {
 	@Override
 	public final Key keyFromPassword(char[] password) {
 		try {
-			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2withHmacSHA1");
 			int keyLength = Math.min(Cipher.getMaxAllowedKeyLength(algorithm), maximumKeyLength);
 			KeySpec spec = new PBEKeySpec(password, salt, iterationCount, keyLength);
 			SecretKey tmp = factory.generateSecret(spec);
